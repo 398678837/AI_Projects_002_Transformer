@@ -1,0 +1,34 @@
+# 项目配置文件
+
+project:
+  name: "AI学习路径：机器学习 → 深度学习 → Transformer → 大语言模型"
+  version: "1.0.0"
+  description: "从传统机器学习到大语言模型的结构化学习路径"
+
+paths:
+  data:
+    raw: "data/raw"  # 原始数据集
+    processed: "data/processed"  # 处理后的数据集
+  models: "models"  # 模型存储
+  notebooks: "notebooks"  # Jupyter笔记本
+  
+learning:
+  day1:
+    ml_concepts: 15  # 机器学习概念（分钟）
+    dl_evolution: 15  # 深度学习演进（分钟）
+    transformer_core: 30  # Transformer核心（分钟）
+  day2:
+    huggingface_basics: 60  # HuggingFace基础（分钟）
+  day3:
+    demo_development: 120  # Demo开发（分钟）
+
+models:
+  qwen:
+    name: "Qwen/Qwen-1_8B-Chat"
+    description: "轻量级Qwen模型，适合CPU推理"
+    max_tokens: 512  # 最大生成token数
+    temperature: 0.7  # 生成温度
+
+hardware:
+  device: "cpu"  # 计算设备：cpu 或 cuda
+  batch_size: 1  # 批次大小
