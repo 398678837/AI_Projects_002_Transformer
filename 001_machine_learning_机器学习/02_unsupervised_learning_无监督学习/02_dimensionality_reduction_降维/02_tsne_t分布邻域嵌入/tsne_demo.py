@@ -21,7 +21,7 @@ X_subset = X[indices]
 y_subset = y[indices].astype(int)
 
 print(f"数据集形状: X={X_subset.shape}, y={y_subset.shape}")
-print(f"类别: {np.unique(y_subset)}")
+print(f"Class: {np.unique(y_subset)}")
 
 # 2. 数据预处理 - 特征标准化
 print("\n特征标准化...")
@@ -54,8 +54,8 @@ print("\n可视化降维结果...")
 
 plt.figure(figsize=(12, 10))
 scatter = plt.scatter(X_tsne[:, 0], X_tsne[:, 1], c=y_subset, cmap='tab10', s=50, alpha=0.7)
-plt.colorbar(scatter, ticks=range(10), label='数字类别')
-plt.title('t-SNE降维 - MNIST数据集')
+plt.colorbar(scatter, ticks=range(10), label='数字Class')
+plt.title('t-SNE Dimensionality Reduction - MNIST Dataset')
 plt.xlabel('t-SNE 1')
 plt.ylabel('t-SNE 2')
 plt.grid(True, alpha=0.3)

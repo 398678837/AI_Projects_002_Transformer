@@ -20,7 +20,7 @@ y = iris.target  # 真实标签
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
 print(f"特征名称: {iris.feature_names}")
-print(f"类别名称: {iris.target_names}")
+print(f"Class名称: {iris.target_names}")
 
 # 2. 数据预处理 - 特征标准化
 print("\n特征标准化...")
@@ -94,61 +94,61 @@ print("\n可视化降维结果...")
 # 2维PCA可视化
 plt.figure(figsize=(12, 6))
 plt.scatter(X_pca_2d[:, 0], X_pca_2d[:, 1], c=y, cmap='viridis', s=50)
-plt.title('PCA降维到2维结果')
+plt.title('PCA Dimensionality Reduction to 2D Results')
 plt.xlabel(f'主成分 1 ({explained_variance_ratio_2d[0]:.2%} 方差)')
 plt.ylabel(f'主成分 2 ({explained_variance_ratio_2d[1]:.2%} 方差)')
-plt.colorbar(ticks=[0, 1, 2], label='类别')
+plt.colorbar(ticks=[0, 1, 2], label='Class')
 plt.grid(linestyle='--', alpha=0.7)
-plt.savefig('pca_2d_visualization.png')
+plt.savefig('images/pca_2d_visualization.png')
 print("2维PCA可视化已保存为 'pca_2d_visualization.png'")
 
 # 解释方差可视化
 plt.figure(figsize=(12, 6))
 plt.bar(range(1, len(explained_variance)+1), explained_variance, alpha=0.6, label='单个主成分的解释方差')
 plt.plot(range(1, len(cumulative_explained_variance)+1), cumulative_explained_variance, 'r-', label='累计解释方差')
-plt.xlabel('主成分数量')
-plt.ylabel('解释方差比率')
-plt.title('PCA解释方差分析')
+plt.xlabel('Number of Principal Components')
+plt.ylabel('Explained Variance Ratio')
+plt.title('PCA Explained Variance Analysis')
 plt.legend()
 plt.grid(linestyle='--', alpha=0.7)
-plt.savefig('pca_explained_variance.png')
+plt.savefig('images/pca_explained_variance.png')
 print("解释方差分析可视化已保存为 'pca_explained_variance.png'")
 
-# 8. PCA在聚类中的应用
-print("\nPCA在聚类中的应用...")
+# 8. PCA在Cluster中的应用
+print("\nPCA在Cluster中的应用...")
 
-# 使用原始数据进行K-Means聚类
+# 使用原始数据进行K-MeansCluster
 kmeans_original = KMeans(n_clusters=3, random_state=42)
 y_pred_original = kmeans_original.fit_predict(X_scaled)
 silhouette_original = silhouette_score(X_scaled, y_pred_original)
-print(f"原始数据K-Means聚类轮廓系数: {silhouette_original:.4f}")
+print(f"原始数据K-MeansClusterSilhouette Score: {silhouette_original:.4f}")
 
-# 使用PCA降维后的数据进行K-Means聚类
+# 使用PCA降维后的数据进行K-MeansCluster
 kmeans_pca = KMeans(n_clusters=3, random_state=42)
 y_pred_pca = kmeans_pca.fit_predict(X_pca_2d)
 silhouette_pca = silhouette_score(X_pca_2d, y_pred_pca)
-print(f"PCA降维后K-Means聚类轮廓系数: {silhouette_pca:.4f}")
+print(f"PCA降维后K-MeansClusterSilhouette Score: {silhouette_pca:.4f}")
 
-# 可视化聚类结果
+# 可视化Clustering Results
 plt.figure(figsize=(12, 6))
 
 plt.subplot(1, 2, 1)
 plt.scatter(X_pca_2d[:, 0], X_pca_2d[:, 1], c=y, cmap='viridis', s=50)
-plt.title('原始标签')
-plt.xlabel('主成分 1')
-plt.ylabel('主成分 2')
-plt.colorbar(ticks=[0, 1, 2], label='类别')
+plt.title('Original Labels')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.colorbar(ticks=[0, 1, 2], label='Class')
 
 plt.subplot(1, 2, 2)
 plt.scatter(X_pca_2d[:, 0], X_pca_2d[:, 1], c=y_pred_pca, cmap='viridis', s=50)
-plt.title('K-Means聚类结果')
-plt.xlabel('主成分 1')
-plt.ylabel('主成分 2')
-plt.colorbar(ticks=[0, 1, 2], label='聚类')
+plt.title('K-Means Clustering Results')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.colorbar(ticks=[0, 1, 2], label='Cluster')
 
 plt.tight_layout()
-plt.savefig('pca_clustering.png')
-print("PCA聚类结果可视化已保存为 'pca_clustering.png'")
+plt.savefig('images/pca_clustering.png')
+print("PCAClustering Results可视化已保存为 'pca_clustering.png'")
 
 # 9. 特征提取
 print("\n基于PCA的特征提取...")

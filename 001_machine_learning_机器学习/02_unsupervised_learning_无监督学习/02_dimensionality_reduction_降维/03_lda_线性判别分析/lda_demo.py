@@ -20,7 +20,7 @@ target_names = iris.target_names
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
 print(f"特征名称: {feature_names}")
-print(f"类别名称: {target_names}")
+print(f"Class名称: {target_names}")
 
 # 2. 数据预处理 - 特征标准化
 print("\n特征标准化...")
@@ -52,7 +52,7 @@ for color, i, target_name in zip(colors, [0, 1, 2], target_names):
     plt.scatter(X_lda[y == i, 0], X_lda[y == i, 1], 
                 color=color, alpha=.8, lw=lw, label=target_name)
 plt.legend(loc='best', shadow=False, scatterpoints=1)
-plt.title('LDA降维 - 鸢尾花数据集')
+plt.title('LDA Dimensionality Reduction - Iris Dataset')
 plt.xlabel('LDA 1')
 plt.ylabel('LDA 2')
 plt.grid(True, alpha=0.3)
@@ -111,13 +111,13 @@ lda_classifier.fit(X_train, y_train)
 y_pred = lda_classifier.predict(X_test)
 
 accuracy = np.mean(y_pred == y_test)
-print(f"LDA分类准确率: {accuracy:.4f}")
+print(f"LDA分类Accuracy: {accuracy:.4f}")
 
 # 7. LDA参数说明
 print("\nLDA参数说明:")
 print("- n_components: 降维后的维度")
 print("  - 最多只能降到n_classes-1维")
-print("  - 鸢尾花数据集有3个类别，所以最多降到2维")
+print("  - 鸢尾花数据集有3个Class，所以最多降到2维")
 print()
 print("- solver: 求解器")
 print("  - 'svd': 奇异值分解（默认），不计算协方差矩阵")
@@ -130,7 +130,7 @@ print("  - 'auto': 自动使用Ledoit-Wolf收缩")
 print("  - float: 0到1之间的浮点数")
 
 print("\nLDA vs PCA:")
-print("- LDA: 有监督降维，最大化类别间距离")
+print("- LDA: 有监督降维，最大化Class间距离")
 print("- PCA: 无监督降维，最大化方差")
 print("- LDA通常在分类任务上表现更好")
 

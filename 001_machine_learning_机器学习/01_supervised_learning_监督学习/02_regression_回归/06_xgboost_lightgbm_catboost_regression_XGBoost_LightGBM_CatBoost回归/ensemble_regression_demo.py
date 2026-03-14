@@ -160,9 +160,9 @@ def main():
     r2_test_values = [results[name]['r2_test'] for name in model_names]
     plt.bar(x - width/2, r2_train_values, width, label='训练集', alpha=0.8)
     plt.bar(x + width/2, r2_test_values, width, label='测试集', alpha=0.8)
-    plt.xlabel('模型')
+    plt.xlabel('Model')
     plt.ylabel('R² Score')
-    plt.title('模型R² Score对比')
+    plt.title('Model R² Score Comparison')
     plt.xticks(x, model_names)
     plt.legend()
     plt.grid(True, alpha=0.3, axis='y')
@@ -174,14 +174,14 @@ def main():
     mse_test_values = [results[name]['mse_test'] for name in model_names]
     plt.bar(x - width/2, mse_train_values, width, label='训练集', alpha=0.8)
     plt.bar(x + width/2, mse_test_values, width, label='测试集', alpha=0.8)
-    plt.xlabel('模型')
+    plt.xlabel('Model')
     plt.ylabel('MSE')
-    plt.title('模型MSE对比')
+    plt.title('Model MSE Comparison')
     plt.xticks(x, model_names)
     plt.legend()
     plt.grid(True, alpha=0.3, axis='y')
     
-    # 特征重要性对比
+    # Feature Importance对比
     for i, name in enumerate(model_names):
         plt.subplot(2, 3, i + 3)
         importances = results[name]['feature_importances']
@@ -189,12 +189,12 @@ def main():
         colors = plt.cm.viridis(np.linspace(0, 1, len(indices)))
         plt.barh(range(len(indices)), importances[indices], color=colors, alpha=0.8)
         plt.yticks(range(len(indices)), [feature_names[i] for i in indices])
-        plt.xlabel('特征重要性')
-        plt.title(f'{name} 特征重要性')
+        plt.xlabel('Feature Importance')
+        plt.title(f'{name} Feature Importance')
         plt.grid(True, alpha=0.3, axis='x')
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/06_xgboost_lightgbm_catboost_regression_XGBoost_LightGBM_CatBoost回归/images/ensemble_regression_comparison.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/ensemble_regression_comparison.png', dpi=300, bbox_inches='tight')
     print("\n集成回归模型对比图已保存到 images/ensemble_regression_comparison.png")
     
     # 打印总结

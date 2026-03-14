@@ -19,7 +19,7 @@ y = iris.target  # 所有标签
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
 print(f"特征名称: {iris.feature_names}")
-print(f"类别名称: {iris.target_names}")
+print(f"Class名称: {iris.target_names}")
 
 # 2. 划分训练集和测试集
 X_train, X_test, y_train, y_test = train_test_split(
@@ -41,22 +41,22 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 conf_matrix = confusion_matrix(y_test, y_pred)
 
-print(f"\n模型准确率: {accuracy:.2f}")
-print("混淆矩阵:")
+print(f"\n模型Accuracy: {accuracy:.2f}")
+print("Confusion Matrix:")
 print(conf_matrix)
 
 # 6. 查看模型参数
 print("\n模型参数:")
 print(f" criterion: {model.criterion}")
 print(f" max_depth: {model.max_depth}")
-print(f" 特征重要性: {model.feature_importances_}")
+print(f" Feature Importance: {model.feature_importances_}")
 
 # 7. 可视化决策树
 print("\n可视化决策树...")
 plt.figure(figsize=(12, 8))
 plot_tree(model, feature_names=iris.feature_names, class_names=iris.target_names, filled=True)
-plt.title("决策树可视化")
-plt.savefig('decision_tree_visualization.png')
+plt.title('Decision Tree Visualization')
+plt.savefig('images/decision_tree_visualization.png')
 print("决策树可视化已保存为 'decision_tree_visualization.png'")
 
 # 8. 简单的预测示例
@@ -68,8 +68,8 @@ actual_label = y_test[sample_idx]
 predicted_label = y_pred[sample_idx]
 
 print(f"样本特征: {sample}")
-print(f"实际类别: {iris.target_names[actual_label]}")
-print(f"预测类别: {iris.target_names[predicted_label]}")
+print(f"实际Class: {iris.target_names[actual_label]}")
+print(f"预测Class: {iris.target_names[predicted_label]}")
 
 # 9. 测试不同max_depth的效果
 print("\n测试不同max_depth的效果:")
@@ -78,6 +78,6 @@ for depth in [1, 2, 3, 4, 5, None]:
     model_depth.fit(X_train, y_train)
     y_pred_depth = model_depth.predict(X_test)
     acc_depth = accuracy_score(y_test, y_pred_depth)
-    print(f"max_depth={depth}: 准确率={acc_depth:.2f}")
+    print(f"max_depth={depth}: Accuracy={acc_depth:.2f}")
 
 print("\nscikit-learn 决策树 Demo完成！")

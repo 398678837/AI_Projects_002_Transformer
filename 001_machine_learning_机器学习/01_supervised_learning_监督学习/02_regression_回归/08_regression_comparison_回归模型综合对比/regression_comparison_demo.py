@@ -146,9 +146,9 @@ def main():
     width = 0.35
     plt.bar(x - width/2, mse_train_values, width, label='训练集', alpha=0.8)
     plt.bar(x + width/2, mse_test_values, width, label='测试集', alpha=0.8)
-    plt.xlabel('模型')
+    plt.xlabel('Model')
     plt.ylabel('MSE')
-    plt.title('模型MSE对比')
+    plt.title('Model MSE Comparison')
     plt.xticks(x, model_names, rotation=45, ha='right')
     plt.legend()
     plt.grid(True, alpha=0.3, axis='y')
@@ -157,9 +157,9 @@ def main():
     plt.subplot(2, 2, 2)
     plt.bar(x - width/2, r2_train_values, width, label='训练集', alpha=0.8)
     plt.bar(x + width/2, r2_test_values, width, label='测试集', alpha=0.8)
-    plt.xlabel('模型')
+    plt.xlabel('Model')
     plt.ylabel('R² Score')
-    plt.title('模型R² Score对比')
+    plt.title('Model R² Score Comparison')
     plt.xticks(x, model_names, rotation=45, ha='right')
     plt.legend()
     plt.grid(True, alpha=0.3, axis='y')
@@ -173,7 +173,7 @@ def main():
     colors = plt.cm.viridis(np.linspace(0, 1, len(sorted_names)))
     bars = plt.barh(sorted_names, sorted_r2_test, color=colors)
     plt.xlabel('R² Score')
-    plt.title('测试集R² Score排序')
+    plt.title('Test Set R² Score Ranking')
     plt.grid(True, alpha=0.3, axis='x')
     for i, bar in enumerate(bars):
         width = bar.get_width()
@@ -188,16 +188,16 @@ def main():
         plt.annotate(name, (r2_train_values[i], r2_test_values[i]), 
                     fontsize=8, xytext=(5, 5), textcoords='offset points')
     plt.plot([0, 1], [0, 1], 'r--', alpha=0.5, label='y=x')
-    plt.xlabel('训练集 R²')
-    plt.ylabel('测试集 R²')
-    plt.title('训练集 vs 测试集 R²')
+    plt.xlabel('Training Set R²')
+    plt.ylabel('Test Set R²')
+    plt.title('Training Set vs Test Set R²')
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.xlim([0, 1])
     plt.ylim([0, 1])
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/08_regression_comparison_回归模型综合对比/images/regression_models_comparison.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/regression_models_comparison.png', dpi=300, bbox_inches='tight')
     print("\n回归模型对比图已保存到 images/regression_models_comparison.png")
     
     # 打印总结

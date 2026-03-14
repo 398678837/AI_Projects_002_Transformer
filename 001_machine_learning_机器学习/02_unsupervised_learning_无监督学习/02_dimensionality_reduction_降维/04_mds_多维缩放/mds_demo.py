@@ -18,7 +18,7 @@ y = iris.target
 target_names = iris.target_names
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
-print(f"类别名称: {target_names}")
+print(f"Class名称: {target_names}")
 
 # 2. 数据预处理 - 特征标准化
 print("\n特征标准化...")
@@ -60,7 +60,7 @@ for color, i, target_name in zip(colors, [0, 1, 2], target_names):
     plt.scatter(X_mds[y == i, 0], X_mds[y == i, 1], 
                 color=color, alpha=.8, lw=lw, label=target_name)
 plt.legend(loc='best', shadow=False, scatterpoints=1)
-plt.title('MDS降维 - 鸢尾花数据集')
+plt.title('MDS Dimensionality Reduction - Iris Dataset')
 plt.xlabel('MDS 1')
 plt.ylabel('MDS 2')
 plt.grid(True, alpha=0.3)

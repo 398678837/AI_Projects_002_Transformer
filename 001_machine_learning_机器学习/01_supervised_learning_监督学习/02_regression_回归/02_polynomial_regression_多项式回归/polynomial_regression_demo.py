@@ -52,7 +52,7 @@ def main():
         plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/02_polynomial_regression_多项式回归/images/polynomial_regression_degrees.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/polynomial_regression_degrees.png', dpi=300, bbox_inches='tight')
     print("\n不同次数的多项式回归对比图已保存到 images/polynomial_regression_degrees.png")
     
     # 第三步：使用真实数据（加州房价数据集）
@@ -116,8 +116,8 @@ def main():
     X_plot = np.linspace(X_train.min(), X_train.max(), 100).reshape(-1, 1)
     y_plot = pipeline.predict(X_plot)
     plt.plot(X_plot, y_plot, 'r-', linewidth=2, label=f'{degree}次多项式回归')
-    plt.xlabel('收入中位数 (MedInc)')
-    plt.ylabel('房价中位数')
+    plt.xlabel('Median Income (MedInc)')
+    plt.ylabel('Median House Price')
     plt.title(f'训练集 - {degree}次多项式回归\nR² = {r2_train:.4f}')
     plt.legend()
     plt.grid(True, alpha=0.3)
@@ -126,14 +126,14 @@ def main():
     plt.subplot(1, 2, 2)
     plt.scatter(X_test, y_test, alpha=0.5, label='测试数据')
     plt.plot(X_plot, y_plot, 'r-', linewidth=2, label=f'{degree}次多项式回归')
-    plt.xlabel('收入中位数 (MedInc)')
-    plt.ylabel('房价中位数')
+    plt.xlabel('Median Income (MedInc)')
+    plt.ylabel('Median House Price')
     plt.title(f'测试集 - {degree}次多项式回归\nR² = {r2_test:.4f}')
     plt.legend()
     plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/02_polynomial_regression_多项式回归/images/polynomial_regression_california.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/polynomial_regression_california.png', dpi=300, bbox_inches='tight')
     print("\n加州房价数据集多项式回归图已保存到 images/polynomial_regression_california.png")
     
     # 第四步：使用多个特征进行多项式回归
@@ -229,7 +229,7 @@ def main():
     plt.title('Ridge Regression - alpha vs R² Score')
     plt.legend()
     plt.grid(True, alpha=0.3, which='both')
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/02_polynomial_regression_多项式回归/images/ridge_alpha_effect.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/ridge_alpha_effect.png', dpi=300, bbox_inches='tight')
     print("\nRidge回归alpha值影响图已保存到 images/ridge_alpha_effect.png")
     
     print("\n" + "=" * 60)

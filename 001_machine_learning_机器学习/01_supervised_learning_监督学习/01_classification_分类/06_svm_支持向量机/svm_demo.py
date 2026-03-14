@@ -20,7 +20,7 @@ y = iris.target  # 所有标签
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
 print(f"特征名称: {iris.feature_names}")
-print(f"类别名称: {iris.target_names}")
+print(f"Class名称: {iris.target_names}")
 
 # 2. 数据预处理 - 特征标准化
 print("\n特征标准化...")
@@ -54,8 +54,8 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 conf_matrix = confusion_matrix(y_test, y_pred)
 
-print(f"\n模型准确率: {accuracy:.2f}")
-print("混淆矩阵:")
+print(f"\n模型Accuracy: {accuracy:.2f}")
+print("Confusion Matrix:")
 print(conf_matrix)
 
 # 7. 查看模型参数
@@ -73,8 +73,8 @@ actual_label = y_test[sample_idx]
 predicted_label = y_pred[sample_idx]
 
 print(f"样本特征: {sample}")
-print(f"实际类别: {iris.target_names[actual_label]}")
-print(f"预测类别: {iris.target_names[predicted_label]}")
+print(f"实际Class: {iris.target_names[actual_label]}")
+print(f"预测Class: {iris.target_names[predicted_label]}")
 
 # 9. 测试不同核函数的效果
 print("\n测试不同核函数的效果:")
@@ -89,7 +89,7 @@ for kernel in kernels:
     model_kernel.fit(X_train, y_train)
     y_pred_kernel = model_kernel.predict(X_test)
     acc_kernel = accuracy_score(y_test, y_pred_kernel)
-    print(f"kernel={kernel}: 准确率={acc_kernel:.2f}")
+    print(f"kernel={kernel}: Accuracy={acc_kernel:.2f}")
 
 # 10. 测试不同C值的效果
 print("\n测试不同C值的效果:")
@@ -104,10 +104,10 @@ for C in C_values:
     model_C.fit(X_train, y_train)
     y_pred_C = model_C.predict(X_test)
     acc_C = accuracy_score(y_test, y_pred_C)
-    print(f"C={C}: 准确率={acc_C:.2f}")
+    print(f"C={C}: Accuracy={acc_C:.2f}")
 
-# 11. 可视化决策边界（仅使用前两个特征）
-print("\n可视化决策边界...")
+# 11. 可视化Decision Boundary（仅使用前两个特征）
+print("\n可视化Decision Boundary...")
 # 仅使用前两个特征进行可视化
 X_2d = X_scaled[:, :2]
 X_train_2d, X_test_2d, y_train_2d, y_test_2d = train_test_split(
@@ -128,15 +128,15 @@ xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
 Z = model_2d.predict(np.c_[xx.ravel(), yy.ravel()])
 Z = Z.reshape(xx.shape)
 
-# 绘制决策边界
+# 绘制Decision Boundary
 plt.figure(figsize=(10, 6))
 plt.contourf(xx, yy, Z, alpha=0.8, cmap=plt.cm.coolwarm)
 plt.scatter(X_train_2d[:, 0], X_train_2d[:, 1], c=y_train_2d, edgecolors='k', cmap=plt.cm.coolwarm)
 plt.scatter(X_test_2d[:, 0], X_test_2d[:, 1], c=y_test_2d, edgecolors='k', marker='s', cmap=plt.cm.coolwarm)
-plt.xlabel('sepal length (标准化)')
-plt.ylabel('sepal width (标准化)')
-plt.title('SVM决策边界 (RBF核)')
-plt.savefig('svm_decision_boundary.png')
-print("决策边界可视化已保存为 'svm_decision_boundary.png'")
+plt.xlabel('sepal length (normalized)')
+plt.ylabel('sepal width (normalized)')
+plt.title('SVM Decision Boundary (RBF kernel)')
+plt.savefig('images/svm_decision_boundary.png')
+print("Decision Boundary可视化已保存为 'svm_decision_boundary.png'")
 
 print("\nscikit-learn SVM Demo完成！")

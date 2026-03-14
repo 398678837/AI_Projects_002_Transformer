@@ -40,7 +40,7 @@ input_seq = np.random.randn(5, 8)
 encoder_out = np.random.randn(5, 8)
 output = decoder.forward(input_seq, encoder_out)
 
-print(f"  输入形状: {input_seq.shape}")
+print(f"  Input形状: {input_seq.shape}")
 print(f"  编码器输出形状: {encoder_out.shape}")
 print(f"  输出形状: {output.shape}")
 

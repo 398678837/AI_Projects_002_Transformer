@@ -86,7 +86,7 @@ print("\n5. CNN结构...")
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
-layers = ['输入层', '卷积层1', '池化层1', '卷积层2', '池化层2', '全连接层', '输出层']
+layers = ['Input层', '卷积层1', '池化层1', '卷积层2', '池化层2', '全连接层', '输出层']
 sizes = [224, 224, 112, 112, 56, 56, 10]
 colors = ['steelblue', 'coral', 'lightgreen', 'coral', 'lightgreen', 'coral', 'steelblue']
 

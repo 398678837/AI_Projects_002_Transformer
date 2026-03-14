@@ -15,7 +15,7 @@ print("\n1. 编码器概念...")
 
 print("""
 编码器 (Encoder):
-- 将输入序列编码为表示
+- 将Input序列编码为表示
 - 包含自注意力层和前馈网络
 - 双向建模上下文
 """)
@@ -38,7 +38,7 @@ encoder = SimpleEncoder()
 input_seq = np.random.randn(5, 8)
 output = encoder.forward(input_seq)
 
-print(f"  输入形状: {input_seq.shape}")
+print(f"  Input形状: {input_seq.shape}")
 print(f"  输出形状: {output.shape}")
 
 # 3. 可视化
@@ -47,7 +47,7 @@ print("\n3. 可视化...")
 fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
 ax = axes[0]
-layers = ['输入', '自注意力', '前馈网络', '输出']
+layers = ['Input', '自注意力', '前馈网络', '输出']
 dims = [8, 8, 16, 8]
 ax.bar(layers, dims, color='steelblue', alpha=0.7)
 ax.set_ylabel('维度')

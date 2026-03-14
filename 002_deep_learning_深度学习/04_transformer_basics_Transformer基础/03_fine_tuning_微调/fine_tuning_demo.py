@@ -55,8 +55,8 @@ ax.grid(True, alpha=0.3)
 
 ax = axes[1]
 bars = ax.bar(names, acc, color='coral', alpha=0.7)
-ax.set_ylabel('准确率 (%)')
-ax.set_title('微调准确率对比')
+ax.set_ylabel('Accuracy (%)')
+ax.set_title('微调Accuracy对比')
 ax.set_xticklabels(names, rotation=15)
 ax.set_ylim(80, 100)
 ax.grid(True, alpha=0.3)
@@ -77,7 +77,7 @@ print("\n" + "=" * 70)
 print("微调总结")
 print("=" * 70)
 print("""
-| 策略 | 参数量 | 准确率 | 速度 |
+| 策略 | 参数量 | Accuracy | 速度 |
 |------|--------|--------|------|
 | 全参数 | 100% | 最高 | 最慢 |
 | 冻结 | 20% | 中等 | 快 |

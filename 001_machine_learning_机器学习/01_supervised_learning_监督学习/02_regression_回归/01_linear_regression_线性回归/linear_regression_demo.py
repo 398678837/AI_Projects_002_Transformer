@@ -57,23 +57,23 @@ print(" 系数 (coefficients):")
 for i, (feature, coef) in enumerate(zip(boston.feature_names, model.coef_)):
     print(f"    {feature}: {coef:.4f}")
 
-# 8. 特征重要性分析（基于系数绝对值）
-print("\n特征重要性（基于系数绝对值）:")
+# 8. Feature Importance分析（基于系数绝对值）
+print("\nFeature Importance（基于系数绝对值）:")
 feature_importance = np.abs(model.coef_)
 for i, (feature, importance) in enumerate(zip(boston.feature_names, feature_importance)):
     print(f"{feature}: {importance:.4f}")
 
-# 9. 可视化预测结果
-print("\n可视化预测结果...")
+# 9. 可视化Predictions
+print("\n可视化Predictions...")
 plt.figure(figsize=(10, 6))
 plt.scatter(y_test, y_pred, alpha=0.5)
 plt.plot([y.min(), y.max()], [y.min(), y.max()], 'r--', lw=2)
-plt.xlabel('实际房价')
-plt.ylabel('预测房价')
-plt.title('线性回归：实际房价 vs 预测房价')
+plt.xlabel('Actual House Price')
+plt.ylabel('Predicted House Price')
+plt.title('Linear Regression：Actual House Price vs Predicted House Price')
 plt.grid(linestyle='--', alpha=0.7)
-plt.savefig('linear_regression_predictions.png')
-print("预测结果可视化已保存为 'linear_regression_predictions.png'")
+plt.savefig('images/linear_regression_predictions.png')
+print("Predictions可视化已保存为 'linear_regression_predictions.png'")
 
 # 10. 简单的预测示例
 print("\n预测示例:")
@@ -94,11 +94,11 @@ residuals = y_test - y_pred
 plt.figure(figsize=(10, 6))
 plt.scatter(y_pred, residuals, alpha=0.5)
 plt.axhline(y=0, color='r', linestyle='--')
-plt.xlabel('预测房价')
-plt.ylabel('残差')
-plt.title('线性回归：残差分析')
+plt.xlabel('Predicted House Price')
+plt.ylabel('Residuals')
+plt.title('Linear Regression: Residuals Analysis')
 plt.grid(linestyle='--', alpha=0.7)
-plt.savefig('linear_regression_residuals.png')
+plt.savefig('images/linear_regression_residuals.png')
 print("残差分析可视化已保存为 'linear_regression_residuals.png'")
 
 print("\nscikit-learn 线性回归 Demo完成！")

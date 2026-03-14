@@ -82,44 +82,44 @@ models['弹性网络'], y_preds['弹性网络'], r2_scores['弹性网络'] = tra
     '弹性网络', elastic_net_model, X_train, y_train, X_test, y_test
 )
 
-# 6. 模型性能对比
-print("\n模型性能对比:")
+# 6. Model Performance Comparison
+print("\nModel Performance Comparison:")
 for model_name, r2 in r2_scores.items():
     print(f"{model_name}: {r2:.4f}")
 
-# 7. 可视化预测结果
-print("\n可视化预测结果...")
+# 7. 可视化Predictions
+print("\n可视化Predictions...")
 plt.figure(figsize=(15, 10))
 
 for i, (model_name, y_pred) in enumerate(y_preds.items()):
     plt.subplot(2, 2, i+1)
     plt.scatter(y_test, y_pred, alpha=0.5)
     plt.plot([y.min(), y.max()], [y.min(), y.max()], 'r--', lw=2)
-    plt.xlabel('实际房价')
-    plt.ylabel('预测房价')
+    plt.xlabel('Actual House Price')
+    plt.ylabel('Predicted House Price')
     plt.title(f'{model_name}：实际房价 vs 预测房价')
     plt.grid(linestyle='--', alpha=0.7)
 
 plt.tight_layout()
-plt.savefig('regularized_regression_predictions.png')
-print("预测结果可视化已保存为 'regularized_regression_predictions.png'")
+plt.savefig('images/regularized_regression_predictions.png')
+print("Predictions可视化已保存为 'regularized_regression_predictions.png'")
 
-# 8. 特征重要性分析
-print("\n特征重要性分析...")
+# 8. Feature Importance分析
+print("\nFeature Importance分析...")
 plt.figure(figsize=(15, 10))
 
 for i, (model_name, model) in enumerate(models.items()):
     feature_importance = np.abs(model.coef_)
     plt.subplot(2, 2, i+1)
     plt.barh(boston.feature_names, feature_importance, color='skyblue')
-    plt.xlabel('重要性（系数绝对值）')
-    plt.ylabel('特征')
-    plt.title(f'{model_name}特征重要性')
+    plt.xlabel('Importance (Absolute Coefficient Value)')
+    plt.ylabel('Feature')
+    plt.title(f'{model_name}Feature Importance')
     plt.grid(axis='x', linestyle='--', alpha=0.7)
 
 plt.tight_layout()
-plt.savefig('regularized_regression_feature_importance.png')
-print("特征重要性可视化已保存为 'regularized_regression_feature_importance.png'")
+plt.savefig('images/regularized_regression_feature_importance.png')
+print("Feature Importance可视化已保存为 'regularized_regression_feature_importance.png'")
 
 # 9. 正则化参数调优
 print("\n正则化参数调优...")
@@ -152,12 +152,12 @@ plt.plot(alphas, ridge_r2, 'o-', label='岭回归')
 plt.plot(alphas, lasso_r2, 's-', label='LASSO回归')
 plt.plot(alphas, elastic_net_r2, '^-', label='弹性网络')
 plt.xscale('log')
-plt.xlabel('alpha（正则化参数）')
-plt.ylabel('R²评分')
-plt.title('不同alpha值对模型性能的影响')
+plt.xlabel('alpha (Regularization Parameter)')
+plt.ylabel('R² Score')
+plt.title('Effect of Different alpha Values on Model Performance')
 plt.legend()
 plt.grid(linestyle='--', alpha=0.7)
-plt.savefig('regularized_regression_alpha_effect.png')
+plt.savefig('images/regularized_regression_alpha_effect.png')
 print("正则化参数调优可视化已保存为 'regularized_regression_alpha_effect.png'")
 
 print("\nscikit-learn 正则化回归 Demo完成！")

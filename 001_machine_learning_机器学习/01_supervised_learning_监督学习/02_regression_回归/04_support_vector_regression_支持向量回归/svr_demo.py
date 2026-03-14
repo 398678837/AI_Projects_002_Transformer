@@ -67,7 +67,7 @@ def main():
         plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/04_support_vector_regression_支持向量回归/images/svr_kernels.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/svr_kernels.png', dpi=300, bbox_inches='tight')
     print("\n不同核函数的SVR对比图已保存到 images/svr_kernels.png")
     
     # 第三步：使用真实数据（加州房价数据集）
@@ -142,8 +142,8 @@ def main():
     y_plot_scaled = svr.predict(X_plot_scaled)
     y_plot = scaler_y.inverse_transform(y_plot_scaled.reshape(-1, 1)).ravel()
     plt.plot(X_plot, y_plot, 'r-', linewidth=2, label='SVR (RBF)')
-    plt.xlabel('收入中位数 (MedInc)')
-    plt.ylabel('房价中位数')
+    plt.xlabel('Median Income (MedInc)')
+    plt.ylabel('Median House Price')
     plt.title(f'训练集 - SVR (RBF)\nR² = {r2_train:.4f}')
     plt.legend()
     plt.grid(True, alpha=0.3)
@@ -152,14 +152,14 @@ def main():
     plt.subplot(1, 2, 2)
     plt.scatter(X_test, y_test, alpha=0.5, label='测试数据')
     plt.plot(X_plot, y_plot, 'r-', linewidth=2, label='SVR (RBF)')
-    plt.xlabel('收入中位数 (MedInc)')
-    plt.ylabel('房价中位数')
+    plt.xlabel('Median Income (MedInc)')
+    plt.ylabel('Median House Price')
     plt.title(f'测试集 - SVR (RBF)\nR² = {r2_test:.4f}')
     plt.legend()
     plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/04_support_vector_regression_支持向量回归/images/svr_california.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/svr_california.png', dpi=300, bbox_inches='tight')
     print("\n加州房价数据集SVR图已保存到 images/svr_california.png")
     
     # 第四步：使用网格搜索调优SVR参数
@@ -238,7 +238,7 @@ def main():
         plt.semilogx(C_values, train_r2_scores[:, j], 'o-', label=f'epsilon={epsilon}')
     plt.xlabel('C')
     plt.ylabel('R² Score')
-    plt.title('训练集 - C vs R² Score')
+    plt.title('Training Set - C vs R² Score')
     plt.legend()
     plt.grid(True, alpha=0.3, which='both')
     
@@ -247,12 +247,12 @@ def main():
         plt.semilogx(C_values, test_r2_scores[:, j], 's-', label=f'epsilon={epsilon}')
     plt.xlabel('C')
     plt.ylabel('R² Score')
-    plt.title('测试集 - C vs R² Score')
+    plt.title('Test Set - C vs R² Score')
     plt.legend()
     plt.grid(True, alpha=0.3, which='both')
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/04_support_vector_regression_支持向量回归/images/svr_parameters_effect.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/svr_parameters_effect.png', dpi=300, bbox_inches='tight')
     print("\nSVR参数影响图已保存到 images/svr_parameters_effect.png")
     
     print("\n" + "=" * 60)

@@ -91,7 +91,7 @@ rnn = SimpleRNN(input_size=1, hidden_size=8, output_size=1)
 print("训练前预测:")
 for seq in X[:1]:
     pred = rnn.forward(seq)
-    print(f"  输入: {seq.flatten()}, 预测: {pred[0,0]:.2f}, 真实: {y[0,0,0]}")
+    print(f"  Input: {seq.flatten()}, 预测: {pred[0,0]:.2f}, 真实: {y[0,0,0]}")
 
 print("\n训练中...")
 for epoch in range(500):
@@ -102,7 +102,7 @@ for epoch in range(500):
 print("\n训练后预测:")
 for seq, target in zip(X, y):
     pred = rnn.forward(seq)
-    print(f"  输入: {seq.flatten()}, 预测: {pred[0,0]:.2f}, 真实: {target[0,0]}")
+    print(f"  Input: {seq.flatten()}, 预测: {pred[0,0]:.2f}, 真实: {target[0,0]}")
 
 # 3. 可视化
 print("\n3. 可视化...")
@@ -120,7 +120,7 @@ ax.bar(x - width/2, predictions, width, label='预测', color='steelblue', alpha
 ax.bar(x + width/2, actuals, width, label='真实', color='coral', alpha=0.7)
 ax.set_xlabel('序列')
 ax.set_ylabel('输出值')
-ax.set_title('RNN序列预测结果')
+ax.set_title('RNN序列Predictions')
 ax.set_xticks(x)
 ax.set_xticklabels([f'{i}' for i in range(len(inputs))])
 ax.legend()
@@ -128,7 +128,7 @@ ax.grid(True, alpha=0.3)
 
 ax = axes[1]
 rnn_structure = """
-输入 → [RNN Cell] → 输出
+Input → [RNN Cell] → 输出
         ↓
        隐藏状态"""
 ax.text(0.5, 0.5, rnn_structure, fontsize=14, ha='center', va='center',

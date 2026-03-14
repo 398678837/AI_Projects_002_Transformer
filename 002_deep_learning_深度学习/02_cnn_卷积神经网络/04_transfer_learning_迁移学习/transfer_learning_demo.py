@@ -80,8 +80,8 @@ ax.grid(True, alpha=0.3)
 
 ax = axes[1]
 ax.bar(strategies, accuracy, color='coral', alpha=0.7)
-ax.set_ylabel('准确率')
-ax.set_title('准确率对比')
+ax.set_ylabel('Accuracy')
+ax.set_title('Accuracy对比')
 ax.set_xticklabels(strategies, rotation=15)
 ax.set_ylim(0.5, 1.0)
 ax.grid(True, alpha=0.3)
@@ -102,7 +102,7 @@ print("\n" + "=" * 70)
 print("迁移学习总结")
 print("=" * 70)
 print("""
-| 策略 | 数据需求 | 准确率 | 训练时间 |
+| 策略 | 数据需求 | Accuracy | 训练时间 |
 |------|----------|--------|----------|
 | 从零训练 | 高 | 低 | 长 |
 | 特征提取 | 低 | 中等 | 短 |

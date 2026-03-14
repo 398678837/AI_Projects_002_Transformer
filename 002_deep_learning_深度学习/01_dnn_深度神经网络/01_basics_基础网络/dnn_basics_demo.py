@@ -87,7 +87,7 @@ y = np.array([[0], [1], [1], [0]])
 nn = NeuralNetwork([2, 8, 8, 1])
 losses = nn.train(X, y, epochs=2000, learning_rate=0.1)
 
-print("\n预测结果:")
+print("\nPredictions:")
 for x in X:
     pred = nn.forward(x.reshape(1, -1))[0, 0]
     print(f"  {x} -> {pred:.4f}")
@@ -102,7 +102,7 @@ epochs_range = range(0, len(losses) * 100, 100)
 ax.plot(epochs_range, losses, 'b-', linewidth=2)
 ax.set_xlabel('Epoch')
 ax.set_ylabel('Loss')
-ax.set_title('训练损失曲线')
+ax.set_title('Training Loss Curve')
 ax.grid(True, alpha=0.3)
 
 ax = axes[1]
@@ -113,10 +113,10 @@ for x in X:
 
 labels = [f'{x[0]},{x[1]}' for x in X]
 ax.bar(labels, predictions, color='steelblue', alpha=0.7)
-ax.axhline(y=0.5, color='red', linestyle='--', label='决策边界')
-ax.set_xlabel('输入')
-ax.set_ylabel('预测概率')
-ax.set_title('XOR问题预测结果')
+ax.axhline(y=0.5, color='red', linestyle='--', label='Decision Boundary')
+ax.set_xlabel('Input')
+ax.set_ylabel('Prediction Probability')
+ax.set_title('XOR Problem Predictions')
 ax.legend()
 ax.grid(True, alpha=0.3)
 
@@ -135,7 +135,7 @@ print("""
 关键概念:
 
 1. 深度神经网络:
-   - 多层结构 (输入层、隐藏层、输出层)
+   - 多层结构 (Input层、隐藏层、输出层)
    - 非线性激活函数
    - 可以逼近任意复杂函数
 

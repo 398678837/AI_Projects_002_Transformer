@@ -37,7 +37,7 @@ y = iris.target  # 所有标签
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
 print(f"特征名称: {iris.feature_names}")
-print(f"类别名称: {iris.target_names}")
+print(f"Class名称: {iris.target_names}")
 
 # 2. 划分训练集和测试集
 X_train, X_test, y_train, y_test = train_test_split(
@@ -58,26 +58,26 @@ def train_and_evaluate(model_name, model, X_train, y_train, X_test, y_test):
     accuracy = accuracy_score(y_test, y_pred)
     conf_matrix = confusion_matrix(y_test, y_pred)
     
-    print(f"{model_name}准确率: {accuracy:.2f}")
-    print("混淆矩阵:")
+    print(f"{model_name}Accuracy: {accuracy:.2f}")
+    print("Confusion Matrix:")
     print(conf_matrix)
     
-    # 特征重要性（如果支持）
+    # Feature Importance（如果支持）
     if hasattr(model, 'feature_importances_'):
-        print("\n特征重要性:")
+        print("\nFeature Importance:")
         feature_importance = model.feature_importances_
         for i, (feature, importance) in enumerate(zip(iris.feature_names, feature_importance)):
             print(f"{feature}: {importance:.4f}")
         
-        # 可视化特征重要性
+        # 可视化Feature Importance
         plt.figure(figsize=(10, 6))
         plt.barh(iris.feature_names, feature_importance, color='skyblue')
-        plt.title(f'{model_name}特征重要性')
-        plt.xlabel('重要性')
-        plt.ylabel('特征')
+        plt.title(f'{model_name}Feature Importance')
+        plt.xlabel('Importance')
+        plt.ylabel('Feature')
         plt.grid(axis='x', linestyle='--', alpha=0.7)
         plt.savefig(f'{model_name.lower().replace(" ", "_")}_feature_importance.png')
-        print(f"特征重要性可视化已保存为 '{model_name.lower().replace(' ', '_')}_feature_importance.png'")
+        print(f"Feature Importance可视化已保存为 '{model_name.lower().replace(' ', '_')}_feature_importance.png'")
     
     return accuracy
 
@@ -115,21 +115,21 @@ if CatBoostClassifier:
     )
     accuracies['CatBoost'] = train_and_evaluate('CatBoost', cat_model, X_train, y_train, X_test, y_test)
 
-# 5. 模型性能对比
+# 5. Model Performance Comparison
 if accuracies:
-    print("\n模型性能对比:")
+    print("\nModel Performance Comparison:")
     for model_name, acc in accuracies.items():
         print(f"{model_name}: {acc:.2f}")
     
     # 可视化性能对比
     plt.figure(figsize=(10, 6))
     plt.bar(accuracies.keys(), accuracies.values(), color='lightgreen')
-    plt.title('集成树模型性能对比')
-    plt.ylabel('准确率')
+    plt.title('Ensemble Trees Model Performance Comparison')
+    plt.ylabel('Accuracy')
     plt.ylim(0.8, 1.05)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.savefig('ensemble_models_comparison.png')
-    print("模型性能对比可视化已保存为 'ensemble_models_comparison.png'")
+    plt.savefig('images/ensemble_models_comparison.png')
+    print("Model Performance Comparison可视化已保存为 'ensemble_models_comparison.png'")
 
 # 6. 简单的预测示例
 print("\n预测示例:")
@@ -143,18 +143,18 @@ new_samples = [
 # 使用第一个可用的模型进行预测
 if XGBClassifier:
     predictions = xgb_model.predict(new_samples)
-    print("XGBoost预测结果:")
+    print("XGBoostPredictions:")
     for i, (sample, pred) in enumerate(zip(new_samples, predictions)):
-        print(f"样本 {i+1}: {sample} → 预测类别: {iris.target_names[pred]}")
+        print(f"样本 {i+1}: {sample} → 预测Class: {iris.target_names[pred]}")
 elif LGBMClassifier:
     predictions = lgb_model.predict(new_samples)
-    print("LightGBM预测结果:")
+    print("LightGBMPredictions:")
     for i, (sample, pred) in enumerate(zip(new_samples, predictions)):
-        print(f"样本 {i+1}: {sample} → 预测类别: {iris.target_names[pred]}")
+        print(f"样本 {i+1}: {sample} → 预测Class: {iris.target_names[pred]}")
 elif CatBoostClassifier:
     predictions = cat_model.predict(new_samples)
-    print("CatBoost预测结果:")
+    print("CatBoostPredictions:")
     for i, (sample, pred) in enumerate(zip(new_samples, predictions)):
-        print(f"样本 {i+1}: {sample} → 预测类别: {iris.target_names[pred]}")
+        print(f"样本 {i+1}: {sample} → 预测Class: {iris.target_names[pred]}")
 
 print("\n集成树模型Demo完成！")

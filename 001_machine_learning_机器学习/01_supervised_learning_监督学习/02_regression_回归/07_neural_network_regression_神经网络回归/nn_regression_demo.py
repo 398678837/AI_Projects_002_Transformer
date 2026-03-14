@@ -88,7 +88,7 @@ def main():
         plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/07_neural_network_regression_神经网络回归/images/nn_architectures.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/nn_architectures.png', dpi=300, bbox_inches='tight')
     print("\n不同结构的神经网络对比图已保存到 images/nn_architectures.png")
     
     # 第三步：使用真实数据（加州房价数据集）
@@ -154,10 +154,10 @@ def main():
     
     # 损失曲线
     plt.subplot(1, 2, 1)
-    plt.plot(nn.loss_curve_, label='训练损失')
-    plt.xlabel('迭代次数')
-    plt.ylabel('损失')
-    plt.title('训练损失曲线')
+    plt.plot(nn.loss_curve_, label='Training Loss')
+    plt.xlabel('Iteration')
+    plt.ylabel('Loss')
+    plt.title('Training Loss Curve')
     plt.legend()
     plt.grid(True, alpha=0.3)
     
@@ -167,14 +167,14 @@ def main():
     min_val = min(y_test.min(), y_pred_test.min())
     max_val = max(y_test.max(), y_pred_test.max())
     plt.plot([min_val, max_val], [min_val, max_val], 'r--', label='完美预测')
-    plt.xlabel('真实值')
-    plt.ylabel('预测值')
+    plt.xlabel('True Values')
+    plt.ylabel('Predictions')
     plt.title(f'预测vs真实值\nR² = {r2_test:.4f}')
     plt.legend()
     plt.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/07_neural_network_regression_神经网络回归/images/nn_training_california.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/nn_training_california.png', dpi=300, bbox_inches='tight')
     print("\n加州房价数据集神经网络训练图已保存到 images/nn_training_california.png")
     
     # 第四步：不同激活函数的影响
@@ -207,14 +207,14 @@ def main():
     width = 0.35
     plt.bar(x - width/2, train_r2_scores, width, label='训练集', alpha=0.8)
     plt.bar(x + width/2, test_r2_scores, width, label='测试集', alpha=0.8)
-    plt.xlabel('激活函数')
+    plt.xlabel('Activation Function')
     plt.ylabel('R² Score')
-    plt.title('不同激活函数的R² Score对比')
+    plt.title('R² Score Comparison for Different Activation Functions')
     plt.xticks(x, activation_names)
     plt.legend()
     plt.grid(True, alpha=0.3, axis='y')
     plt.ylim([0, 1])
-    plt.savefig('001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/07_neural_network_regression_神经网络回归/images/nn_activations.png', dpi=300, bbox_inches='tight')
+    plt.savefig('images/nn_activations.png', dpi=300, bbox_inches='tight')
     print("\n不同激活函数对比图已保存到 images/nn_activations.png")
     
     print("\n" + "=" * 80)

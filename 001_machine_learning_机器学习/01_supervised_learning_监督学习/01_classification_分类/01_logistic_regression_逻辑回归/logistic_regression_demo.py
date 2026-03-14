@@ -13,13 +13,13 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 print("加载鸢尾花数据集...")
 iris = load_iris()
 
-# 只取前两个类别（Setosa和Versicolor）进行二分类
+# 只取前两个Class（Setosa和Versicolor）进行二分类
 X = iris.data[:100]  # 前100个样本
 y = iris.target[:100]  # 前100个标签（0和1）
 
 print(f"数据集形状: X={X.shape}, y={y.shape}")
 print(f"特征名称: {iris.feature_names}")
-print(f"类别名称: {iris.target_names[:2]}")
+print(f"Class名称: {iris.target_names[:2]}")
 
 # 2. 划分训练集和测试集
 X_train, X_test, y_train, y_test = train_test_split(
@@ -40,8 +40,8 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 conf_matrix = confusion_matrix(y_test, y_pred)
 
-print(f"\n模型准确率: {accuracy:.2f}")
-print("混淆矩阵:")
+print(f"\n模型Accuracy: {accuracy:.2f}")
+print("Confusion Matrix:")
 print(conf_matrix)
 
 # 6. 查看模型参数
@@ -58,7 +58,7 @@ actual_label = y_test[sample_idx]
 predicted_label = y_pred[sample_idx]
 
 print(f"样本特征: {sample}")
-print(f"实际类别: {iris.target_names[actual_label]}")
-print(f"预测类别: {iris.target_names[predicted_label]}")
+print(f"实际Class: {iris.target_names[actual_label]}")
+print(f"预测Class: {iris.target_names[predicted_label]}")
 
 print("\n逻辑回归Demo完成！")

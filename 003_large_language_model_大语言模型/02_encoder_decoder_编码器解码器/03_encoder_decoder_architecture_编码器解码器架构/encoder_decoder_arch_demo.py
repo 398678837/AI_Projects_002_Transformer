@@ -15,7 +15,7 @@ print("\n1. 编码器-解码器架构...")
 
 print("""
 编码器-解码器 (Encoder-Decoder):
-- 编码器处理输入
+- 编码器处理Input
 - 解码器生成输出
 - 用于序列到序列任务
 """)
@@ -52,7 +52,7 @@ ax = axes[1]
 tasks = ['翻译', '摘要', '问答', '对话']
 accuracy = [0.88, 0.82, 0.85, 0.78]
 ax.bar(tasks, accuracy, color='steelblue', alpha=0.7)
-ax.set_ylabel('准确率')
+ax.set_ylabel('Accuracy')
 ax.set_title('不同任务的性能')
 ax.set_ylim(0, 1)
 ax.grid(True, alpha=0.3)

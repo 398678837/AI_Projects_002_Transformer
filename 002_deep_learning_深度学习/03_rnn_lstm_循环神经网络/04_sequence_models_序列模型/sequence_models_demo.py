@@ -67,8 +67,8 @@ popularity = [9, 7, 8]
 
 ax = axes[0]
 bars = ax.bar(applications, accuracy, color=['steelblue', 'coral', 'green'], alpha=0.7)
-ax.set_ylabel('准确率')
-ax.set_title('应用准确率对比')
+ax.set_ylabel('Accuracy')
+ax.set_title('应用Accuracy对比')
 ax.set_ylim(0, 1)
 ax.grid(True, alpha=0.3)
 for bar, acc in zip(bars, accuracy):

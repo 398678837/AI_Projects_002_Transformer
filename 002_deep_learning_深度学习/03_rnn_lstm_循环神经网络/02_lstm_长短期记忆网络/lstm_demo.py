@@ -21,7 +21,7 @@ LSTM (Long Short-Term Memory):
 
 核心组件:
 1. 遗忘门: 决定丢弃什么信息
-2. 输入门: 决定存储什么信息  
+2. Input门: 决定存储什么信息  
 3. 输出门: 决定输出什么信息
 """)
 
@@ -114,7 +114,7 @@ ax.axis('off')
 ax.set_title('LSTM单元', fontsize=14)
 
 ax = axes[1]
-gates = ['遗忘门\n(Forget)', '输入门\n(Input)', '候选值\n(Candidate)', '输出门\n(Output)']
+gates = ['遗忘门\n(Forget)', 'Input门\n(Input)', '候选值\n(Candidate)', '输出门\n(Output)']
 importance = [0.85, 0.75, 0.65, 0.80]
 colors = ['steelblue', 'coral', 'green', 'purple']
 
@@ -140,7 +140,7 @@ print("""
 | 门 | 作用 | 公式 |
 |-----|------|------|
 | 遗忘门 | 丢弃信息 | f = σ(W_f·[h_{t-1},x_t]) |
-| 输入门 | 添加新信息 | i = σ(W_i·[h_{t-1},x_t]) |
+| Input门 | 添加新信息 | i = σ(W_i·[h_{t-1},x_t]) |
 | 候选值 | 候选记忆 | C̃ = tanh(W_C·[h_{t-1},x_t]) |
 | 输出门 | 决定输出 | o = σ(W_o·[h_{t-1},x_t]) |
 
