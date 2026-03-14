@@ -1,142 +1,183 @@
-# AI学习路径：机器学习 → 深度学习 → Transformer → 大语言模型
+# AI_Projects_002_Transformer
 
 ## 项目概述
-本项目提供从传统机器学习到深度学习，再到基于Transformer的大语言模型的结构化学习路径。
+
+这是一个全面的机器学习、深度学习和Transformer学习项目，包含了从基础算法到高级模型的完整实现和文档。项目采用中英双语命名，便于不同背景的学习者理解和使用。
 
 ## 项目结构
 
 ```
 AI_Projects_002_Transformer/
-├── 001_machine_learning_机器学习/     # 001 - 传统机器学习
-│   ├── 01_supervised_learning_监督学习/   # 01 - 监督学习
-│   │   ├── 01_classification_分类/       # 01 - 分类任务
-│   │   │   ├── 01_logistic_regression_逻辑回归/  # 逻辑回归
-│   │   │   ├── 02_knn_近邻/             # KNN近邻
-│   │   │   ├── 03_decision_tree_决策树/   # 决策树
-│   │   │   ├── 04_random_forest_随机森林/  # 随机森林
-│   │   │   ├── 05_xgboost_lightgbm_catboost/  # XGBoost/LightGBM/CatBoost
-│   │   │   ├── 06_svm_支持向量机/        # SVM支持向量机
-│   │   │   └── 07_naive_bayes_朴素贝叶斯/  # 朴素贝叶斯
-│   │   └── 02_regression_回归/          # 02 - 回归任务
-│   │       ├── 01_linear_regression_线性回归/  # 线性回归
-│   │       ├── 02_ridge_lasso_正则回归/    # 岭回归/Lasso
-│   │       └── 03_xgboost_lightgbm_回归/  # XGBoost/LightGBM回归
-│   ├── 02_unsupervised_learning_无监督学习/ # 02 - 无监督学习
-│   │   ├── 01_clustering_聚类/          # 01 - 聚类
-│   │   │   ├── 01_kmeans_K均值/         # K-Means
-│   │   │   ├── 02_dbscan_密度聚类/       # DBSCAN
-│   │   │   └── 03_hierarchical_层次聚类/   # 层次聚类
-│   │   └── 02_dimensionality_reduction_降维/  # 02 - 降维
-│   │       ├── 01_pca_主成分分析/        # PCA
-│   │       ├── 02_tsne_可视化/          # t-SNE
-│   │       └── 03_lda_线性判别分析/       # LDA
-│   └── 03_reinforcement_learning_强化学习/  # 03 - 强化学习
-│       ├── 01_q_learning_Q学习/         # Q-Learning
-│       ├── 02_dqn_深度Q网络/           # DQN
-│       └── 03_ppo_近端策略优化/         # PPO
-├── 002_deep_learning_深度学习/         # 002 - 深度学习
-│   ├── 01_dnn_深度神经网络/           # 01 - 深度神经网络
-│   │   ├── 01_basics_基础网络/         # 基础网络
-│   │   ├── 02_activation_functions_激活函数/  # 激活函数
-│   │   ├── 03_optimizers_优化器/        # 优化器
-│   │   └── 04_regularization_正则化/     # 正则化
-│   ├── 02_cnn_卷积神经网络/           # 02 - 卷积神经网络
-│   │   ├── 01_convolution_卷积层/       # 卷积层
-│   │   ├── 02_pooling_池化层/          # 池化层
-│   │   ├── 03_classic_architectures_经典架构/  # 经典架构
-│   │   │   ├── 01_lenet_LeNet/         # LeNet
-│   │   │   ├── 02_alexnet_AlexNet/      # AlexNet
-│   │   │   ├── 03_vgg_VGG/             # VGG
-│   │   │   ├── 04_resnet_ResNet/        # ResNet
-│   │   │   └── 05_mobilenet_MobileNet/   # MobileNet
-│   │   └── 04_transfer_learning_迁移学习/   # 迁移学习
-│   ├── 03_rnn_lstm_循环神经网络/       # 03 - 循环神经网络 & LSTM
-│   │   ├── 01_rnn_循环神经网络/         # RNN
-│   │   ├── 02_lstm_长短期记忆网络/       # LSTM
-│   │   ├── 03_gru_门控循环单元/         # GRU
-│   │   └── 04_sequence_models_序列模型/   # 序列模型
-│   │       ├── 01_text_generation_文本生成/  # 文本生成
-│   │       ├── 02_time_series_时间序列/     # 时间序列
-│   │       └── 03_machine_translation_机器翻译/  # 机器翻译
-│   └── 04_transformer_basics_Transformer基础/  # 04 - Transformer基础
-│       ├── 01_transformer_vs_rnn_Transformer对比RNN/  # Transformer对比RNN
-│       ├── 02_pre_training_预训练/       # 预训练
-│       ├── 03_fine_tuning_微调/         # 微调
-│       └── 04_llm_applications_LLM应用/   # LLM应用
-├── 003_transformer_Transformer/       # 003 - Transformer & LLM
-│   ├── 01_attention_mechanism_自注意力机制/  # 01 - 自注意力机制
-│   │   ├── 01_self_attention_自注意力/    # 自注意力
-│   │   ├── 02_multi_head_attention多头注意力/  # 多头注意力
-│   │   ├── 03_positional_encoding位置编码/    # 位置编码
-│   │   └── 04_attention_visualization注意力可视化/  # 注意力可视化
-│   ├── 02_encoder_decoder_编码器解码器/    # 02 - 编码器-解码器架构
-│   │   ├── 01_encoder_编码器/           # 编码器
-│   │   ├── 02_decoder_解码器/           # 解码器
-│   │   ├── 03_encoder_decoder_architecture_编码器解码器架构/  # 编码器-解码器架构
-│   │   └── 04_cross_attention_交叉注意力/    # 交叉注意力
-│   ├── 03_huggingface_HuggingFace/      # 03 - HuggingFace生态
-│   │   ├── 01_transformers_library_Transformers库/  # Transformers库
-│   │   ├── 02_model_hub_ModelHub/       # Model Hub
-│   │   ├── 03_dataset_hub_DatasetHub/    # Dataset Hub
-│   │   ├── 04_tokenization_分词器/       # 分词器
-│   │   └── 05_model_loading_模型加载/    # 模型加载
-│   └── 04_qwen_demo_Qwen对话/           # 04 - Qwen-1.8B-Chat对话Demo
-│       ├── 01_environment_setup_环境配置/    # 环境配置
-│       ├── 02_model_loading_模型加载/       # 模型加载
-│       ├── 03_chat_implementation_对话实现/   # 对话实现
-│       ├── 04_multi_turn_conversation_多轮对话/  # 多轮对话
-│       └── 05_deployment_部署/           # 部署
-├── config/                      # 配置文件
-├── data/                        # 数据集存储
-│   ├── raw/                     # 原始数据集
-│   └── processed/               # 处理后的数据集
-├── notebooks/                   # Jupyter笔记本
-├── utils/                       # 工具函数
-├── requirements.txt             # Python依赖包
-└── README.md                    # 本文件
+├── 001_machine_learning_机器学习/             # 机器学习部分
+│   ├── 01_supervised_learning_监督学习/      # 监督学习
+│   │   ├── 01_classification_分类/           # 分类算法
+│   │   │   ├── 01_logistic_regression_逻辑回归/
+│   │   │   ├── 02_knn_K近邻/
+│   │   │   ├── 03_decision_tree_决策树/
+│   │   │   ├── 04_random_forest_随机森林/
+│   │   │   ├── 05_xgboost_lightgbm_catboost_XGBoost_LightGBM_CatBoost/
+│   │   │   ├── 06_svm_支持向量机/
+│   │   │   └── 07_naive_bayes_朴素贝叶斯/
+│   │   └── 02_regression_回归/             # 回归算法
+│   │       ├── 01_linear_regression_线性回归/
+│   │       ├── 02_ridge_lasso_elastic_net_岭回归_LASSO_弹性网络/
+│   │       └── 03_tree_regression_树回归/
+│   └── 02_unsupervised_learning_无监督学习/    # 无监督学习
+│       ├── 01_clustering_聚类/              # 聚类算法
+│       │   ├── 01_kmeans_K均值/
+│       │   └── 02_advanced_clustering_高级聚类/  # 层次聚类、DBSCAN、高斯混合模型
+│       └── 02_dimensionality_reduction_降维/  # 降维算法
+│           └── 01_pca_主成分分析/
+├── 002_deep_learning_深度学习/               # 深度学习部分
+│   ├── 01_fundamentals_基础/
+│   ├── 02_cnn_卷积神经网络/
+│   ├── 03_rnn_lstm_gru_循环神经网络/
+│   └── 04_transformer_基础/
+├── 003_large_language_model_大语言模型/       # 大语言模型部分
+│   ├── 01_huggingface_生态/
+│   └── 02_qwen_1_8b_chat_部署与微调/
+├── requirements.txt                           # 依赖包
+└── README.md                                  # 项目说明
 ```
 
-## 学习路径
+## 3天学习路径
 
-### 第一天：机器学习/深度学习基础 + Transformer核心
-- 15分钟：传统机器学习概念（监督学习/无监督学习/强化学习）
-- 15分钟：深度学习演进（DNN → CNN → RNN → Transformer）
-- 30分钟：Transformer架构（自注意力机制、编码器-解码器）
+### Day 1: 机器学习基础与深度学习回顾
+- **上午**：机器学习基础概念、监督学习vs无监督学习、模型评估
+- **下午**：线性回归、逻辑回归、决策树、随机森林
+- **晚上**：深度学习基础回顾、CNN/RNN/Transformer原理
 
-### 第二天：HuggingFace生态
-- Transformers库
-- Model Hub & Dataset Hub
-- 加载预训练模型
+### Day 2: HuggingFace生态与模型应用
+- **上午**：HuggingFace Transformers库、预训练模型使用
+- **下午**：文本分类、情感分析、命名实体识别
+- **晚上**：模型微调基础、参数高效微调(PEFT)
 
-### 第三天：实战Demo
-- 构建Qwen-1.8B-Chat对话Demo
-- 多轮对话功能
-- GitHub上传 & 简历更新
+### Day 3: Qwen-1.8B-Chat部署与应用
+- **上午**：模型下载与部署、环境配置
+- **下午**：对话系统开发、API调用
+- **晚上**：实际应用案例、性能优化
 
-## 环境安装
+## 已实现的算法
 
+### 监督学习
+
+#### 分类算法
+1. **逻辑回归**：二分类和多分类实现，包含详细文档和示例
+2. **K近邻(KNN)**：基于距离的分类算法，包含参数调优
+3. **决策树**：基于信息增益的分类算法，包含可视化
+4. **随机森林**：集成学习算法，提高分类性能
+5. **XGBoost/LightGBM/CatBoost**：梯度提升树算法，工业级应用
+6. **支持向量机(SVM)**：基于最大化间隔的分类算法
+7. **朴素贝叶斯**：基于贝叶斯定理的概率分类算法
+
+#### 回归算法
+1. **线性回归**：基础线性模型，包含数学原理和实现
+2. **岭回归/LASSO/弹性网络**：正则化回归算法，解决过拟合问题
+3. **树回归**：决策树回归、随机森林回归、梯度提升树回归
+
+### 无监督学习
+
+#### 聚类算法
+1. **K-Means**：基于距离的聚类算法，包含肘部法则和轮廓系数分析
+2. **层次聚类**：基于层次结构的聚类算法，包含树状图可视化
+3. **DBSCAN**：基于密度的聚类算法，可发现任意形状的聚类
+4. **高斯混合模型**：基于概率模型的聚类算法，支持软聚类
+
+#### 降维算法
+1. **主成分分析(PCA)**：线性降维算法，包含解释方差分析和可视化
+
+## 环境配置
+
+### 虚拟环境创建（推荐）
 ```bash
+# 在D盘创建虚拟环境
+python -m venv D:\Programming\Trae\Environment\ml_env
+
+# 激活虚拟环境
+D:\Programming\Trae\Environment\ml_env\Scripts\activate
+
+# 安装依赖
 pip install -r requirements.txt
 ```
 
-## 核心概念
-
-### 技术演进路线
+### 依赖包
 ```
-人工智能 (AI) → 机器学习 (ML) → 深度学习 (DL) → 大语言模型 (LLM/Transformer)
+# 基础包
+numpy==1.24.3
+pandas==2.0.3
+matplotlib==3.7.2
+scikit-learn==1.3.0
+
+# 高级包
+xgboost==1.7.6
+lightgbm==3.3.5
+catboost==1.1.1
+scipy==1.10.1
+
+# 深度学习包
+tensorflow==2.13.0
+keras==2.13.1
+pytorch==2.0.1
+transformers==4.30.2
+datasets==2.13.1
+
+# 其他包
+jupyter==1.0.0
+notebook==6.5.4
 ```
 
-### ML vs DL vs LLM 对比
-| 类型 | 特征处理 | 代表架构 | 学习重点 |
-|------|---------|---------|---------|
-| 传统机器学习 | 人工提取 | 决策树、逻辑回归 | 基础概念 |
-| 深度学习 | 自动提取 | CNN、RNN、Transformer | 架构原理 |
-| 大模型 LLM | 通用特征 | Transformer | 实际应用 |
+## 使用方法
 
-## 简历技能
-- 掌握大模型基础原理、Transformer架构核心逻辑
-- 了解传统机器学习、深度学习基础概念与分类
-- 熟悉HuggingFace生态，可使用Transformers库加载开源大模型实现对话功能
+1. **克隆仓库**：
+   ```bash
+   git clone https://github.com/398678837/AI_Projects_002_Transformer.git
+   cd AI_Projects_002_Transformer
+   ```
+
+2. **安装依赖**：
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **运行示例**：
+   ```bash
+   # 运行逻辑回归示例
+   python 001_machine_learning_机器学习/01_supervised_learning_监督学习/01_classification_分类/01_logistic_regression_逻辑回归/logistic_regression_demo.py
+   
+   # 运行线性回归示例
+   python 001_machine_learning_机器学习/01_supervised_learning_监督学习/02_regression_回归/01_linear_regression_线性回归/linear_regression_demo.py
+   
+   # 运行K-Means聚类示例
+   python 001_machine_learning_机器学习/02_unsupervised_learning_无监督学习/01_clustering_聚类/01_kmeans_K均值/kmeans_demo.py
+   
+   # 运行PCA降维示例
+   python 001_machine_learning_机器学习/02_unsupervised_learning_无监督学习/02_dimensionality_reduction_降维/01_pca_主成分分析/pca_demo.py
+   ```
+
+4. **查看文档**：
+   每个算法目录下都有详细的markdown文档，包含概念介绍、技术原理、代码解析等内容。
+
+## 项目特点
+
+1. **全面覆盖**：包含机器学习、深度学习和Transformer的核心算法和模型
+2. **详细文档**：每个算法都有详细的markdown文档，便于学习和理解
+3. **代码实现**：提供scikit-learn实现，代码简洁易懂
+4. **可视化**：包含丰富的可视化结果，便于直观理解算法效果
+5. **中英双语**：采用中英双语命名，便于不同背景的学习者使用
+6. **环境配置**：提供完整的依赖包和环境配置说明
+
+## 后续计划
+
+1. **深度学习部分**：完成CNN、RNN/LSTM/GRU、Transformer的详细实现和文档
+2. **大语言模型部分**：完成HuggingFace生态和Qwen-1.8B-Chat的部署与应用
+3. **模型部署**：添加模型部署和服务化相关内容
+4. **实战项目**：添加更多实战项目，如图像分类、文本分类、推荐系统等
+5. **性能优化**：添加模型性能优化相关内容
+
+## 贡献
+
+欢迎提交issue和pull request，一起完善这个项目！
 
 ## 许可证
-MIT License
+
+本项目采用MIT许可证。
