@@ -11,82 +11,71 @@ AI_Projects_002_Transformer/
 ├── 001_machine_learning_机器学习/             # 机器学习部分
 │   ├── 01_supervised_learning_监督学习/      # 监督学习
 │   │   ├── 01_classification_分类/           # 分类算法
-│   │   │   ├── 01_logistic_regression_逻辑回归/
-│   │   │   ├── 02_knn_K近邻/
-│   │   │   ├── 03_decision_tree_决策树/
-│   │   │   ├── 04_random_forest_随机森林/
-│   │   │   ├── 05_xgboost_lightgbm_catboost_XGBoost_LightGBM_CatBoost/
-│   │   │   ├── 06_svm_支持向量机/
-│   │   │   └── 07_naive_bayes_朴素贝叶斯/
 │   │   └── 02_regression_回归/              # 回归算法
-│   │       ├── 01_linear_regression_线性回归/
-│   │       ├── 02_polynomial_regression_多项式回归/
-│   │       ├── 03_regularized_regression_正则化回归/
-│   │       ├── 04_support_vector_regression_支持向量回归/
-│   │       ├── 05_tree_regression_树模型回归/
-│   │       ├── 06_xgboost_lightgbm_catboost_regression_XGBoost_LightGBM_CatBoost回归/
-│   │       ├── 07_neural_network_regression_神经网络回归/
-│   │       └── 08_regression_comparison_回归模型综合对比/
 │   ├── 02_unsupervised_learning_无监督学习/    # 无监督学习
 │   │   ├── 01_clustering_聚类/               # 聚类算法
-│   │   │   ├── 01_kmeans_K均值/
-│   │   │   └── 02_advanced_clustering_高级聚类/
 │   │   └── 02_dimensionality_reduction_降维/  # 降维算法
-│   │       ├── 01_pca_主成分分析/
-│   │       ├── 02_tsne_t分布邻域嵌入/
-│   │       ├── 03_lda_线性判别分析/
-│   │       ├── 04_mds_多维缩放/
-│   │       └── 05_advanced_dimensionality_reduction_高级降维/
 │   └── 03_reinforcement_learning_强化学习/    # 强化学习
-│       ├── 01_introduction_强化学习基础/      # 基础概念
-│       │   ├── 01_mdp_Markov决策过程/
-│       │   └── 02_bellman_贝尔曼方程/
-│       ├── 02_dynamic_programming_动态规划/  # 基于模型的方法
-│       │   ├── 01_policy_iteration_策略迭代/
-│       │   └── 02_value_iteration_价值迭代/
-│       ├── 03_monte_carlo_蒙特卡洛方法/      # 无模型方法
-│       │   ├── 01_mc_basics_蒙特卡洛基础/
-│       │   └── 02_mc_control_蒙特卡洛控制/
-│       ├── 04_temporal_difference_时序差分/    # TD学习
-│       │   ├── 01_q_learning_Q学习/
-│       │   └── 02_sarsa_SARSA/
-│       ├── 05_deep_rl_深度强化学习/          # 深度RL
-│       │   ├── 01_dqn_深度Q网络/
-│       │   ├── 02_policy_gradient_策略梯度/
-│       │   ├── 03_actor_critic_Actor-Critic/
-│       │   └── 04_ppo_PPO算法/
-│       └── 06_rl_comparison_强化学习综合/     # 综合
-│           ├── 01_gym_environments_Gym环境/
-│           ├── 02_algorithm_comparison_算法对比/
-│           └── 03_applications_实际应用/
 ├── 002_deep_learning_深度学习/               # 深度学习部分
-│   ├── 01_fundamentals_基础/
-│   ├── 02_cnn_卷积神经网络/
-│   ├── 03_rnn_lstm_gru_循环神经网络/
-│   └── 04_transformer_基础/
+│   ├── 01_dnn_深度神经网络/                 # 深度神经网络
+│   ├── 02_cnn_卷积神经网络/                 # 卷积神经网络
+│   ├── 03_rnn_lstm_循环神经网络/             # 循环神经网络
+│   └── 04_transformer_basics_Transformer基础/  # Transformer基础
 ├── 003_large_language_model_大语言模型/       # 大语言模型部分
-│   ├── 01_huggingface_生态/
-│   └── 02_qwen_1_8b_chat_部署与微调/
+│   ├── 01_attention_mechanism_自注意力机制/    # 自注意力机制
+│   ├── 02_encoder_decoder_编码器解码器/        # 编码器解码器
+│   ├── 03_huggingface_HuggingFace/           # HuggingFace生态
+│   └── 04_qwen_demo_Qwen对话/                # Qwen对话
+├── 004_numpy_pandas_数据处理基础/             # NumPy和Pandas
+│   ├── 01_numpy_basics_NumPy基础/            # NumPy基础
+│   ├── 02_numpy_advanced_NumPy进阶/          # NumPy进阶
+│   ├── 03_pandas_basics_Pandas基础/            # Pandas基础
+│   ├── 04_pandas_advanced_Pandas进阶/          # Pandas进阶
+│   └── 05_data_visualization_数据可视化/       # 数据可视化
+├── 005_pytorch_PyTorch学习/                   # PyTorch深度学习
+│   ├── 01_pytorch_basics_PyTorch基础/         # PyTorch基础
+│   ├── 02_pytorch_advanced_PyTorch进阶/       # PyTorch进阶
+│   ├── 03_pytorch_models_PyTorch模型/        # PyTorch模型
+│   └── 04_pytorch_gpu_PyTorch_GPU/          # PyTorch GPU
+├── 006_tensorflow_TensorFlow学习/               # TensorFlow深度学习
+│   ├── 01_tensorflow_basics_TensorFlow基础/     # TensorFlow基础
+│   ├── 02_tensorflow_advanced_TensorFlow进阶/   # TensorFlow进阶
+│   └── 03_tensorflow_models_TensorFlow模型/    # TensorFlow模型
+├── 007_hadoop_spark_大数据处理/               # Hadoop和Spark大数据
+│   ├── 01_hadoop_basics_Hadoop基础/            # Hadoop基础
+│   ├── 02_hadoop_ecosystem_Hadoop生态/          # Hadoop生态
+│   ├── 03_spark_basics_Spark基础/               # Spark基础
+│   └── 04_spark_advanced_Spark进阶/             # Spark进阶
 ├── requirements.txt                           # 依赖包
 └── README.md                                  # 项目说明
 ```
 
-## 3天学习路径
+## 7天学习路径
 
-### Day 1: 机器学习基础与深度学习回顾
-- **上午**：机器学习基础概念、监督学习vs无监督学习、模型评估
-- **下午**：线性回归、逻辑回归、决策树、随机森林
-- **晚上**：深度学习基础回顾、CNN/RNN/Transformer原理
+### Day 1-2: 数据处理基础
+- **NumPy基础**：数组创建、操作、数学运算、广播机制
+- **NumPy进阶**：高级索引、形状操作、线性代数、随机数
+- **Pandas基础**：Series、DataFrame、数据选择、数据操作
+- **Pandas进阶**：分组操作、合并连接、缺失数据、时间序列
+- **数据可视化**：Matplotlib、Seaborn、Pandas绘图
 
-### Day 2: HuggingFace生态与模型应用
-- **上午**：HuggingFace Transformers库、预训练模型使用
-- **下午**：文本分类、情感分析、命名实体识别
-- **晚上**：模型微调基础、参数高效微调(PEFT)
+### Day 3-4: 机器学习与深度学习
+- **机器学习**：监督学习、无监督学习、强化学习
+- **深度学习**：DNN、CNN、RNN/LSTM、Transformer基础
 
-### Day 3: Qwen-1.8B-Chat部署与应用
-- **上午**：模型下载与部署、环境配置
-- **下午**：对话系统开发、API调用
-- **晚上**：实际应用案例、性能优化
+### Day 5: 大语言模型
+- **自注意力机制**：自注意力、多头注意力、位置编码、可视化
+- **编码器-解码器**：编码器、解码器、架构、交叉注意力
+- **HuggingFace生态**：Transformers库、Model Hub、Dataset Hub、分词器、模型加载
+- **Qwen对话**：环境配置、模型加载、对话实现、多轮对话、部署
+
+### Day 6: PyTorch与TensorFlow
+- **PyTorch**：基础、进阶、模型、GPU
+- **TensorFlow**：基础、进阶、模型
+
+### Day 7: 大数据处理
+- **Hadoop**：基础、生态（Hive、HBase、Flume、Kafka）
+- **Spark**：基础、进阶（流处理、MLlib、GraphX、结构化流）
 
 ## 已实现的算法
 
@@ -229,20 +218,18 @@ notebook==6.5.4
 
 ## 项目特点
 
-1. **全面覆盖**：包含机器学习、深度学习和Transformer的核心算法和模型
+1. **全面覆盖**：包含机器学习、深度学习、大语言模型、NumPy/Pandas、PyTorch、TensorFlow、Hadoop/Spark
 2. **详细文档**：每个算法都有详细的markdown文档，便于学习和理解
-3. **代码实现**：提供scikit-learn实现，代码简单易懂
+3. **代码实现**：提供简洁易懂的代码实现
 4. **可视化**：包含丰富的可视化结果，便于直观理解算法效果
 5. **中英双语**：采用中英双语命名，适合不同背景的学习者使用
 6. **环境配置**：提供完整的依赖包和环境配置说明
 
 ## 后续计划
 
-1. **深度学习部分**：完成CNN、RNN/LSTM/GRU、Transformer的详细实例和文档
-2. **大语言模型部分**：完成HuggingFace生态和Qwen-1.8B-Chat的部署与应用
-3. **模型部署**：添加模型部署和服务化相关内容
-4. **实战项目**：添加更多实战项目，如图像分类、文本分类、推荐系统等   
-5. **性能优化**：添加模型性能优化相关内容
+1. **完善内容**：为新创建的模块添加详细的demo、文档和教材
+2. **实战项目**：添加更多实战项目
+3. **性能优化**：添加模型性能优化相关内容
 
 ## 贡献
 
