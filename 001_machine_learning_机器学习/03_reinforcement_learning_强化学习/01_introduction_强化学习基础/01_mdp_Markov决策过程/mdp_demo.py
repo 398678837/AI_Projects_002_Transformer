@@ -3,9 +3,13 @@ Markov决策过程（MDP）的演示
 使用简单的网格世界示例
 """
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 # 1. 定义简单的网格世界
 print("定义简单的网格世界...")
@@ -89,8 +93,8 @@ plt.xlabel('Column')
 plt.ylabel('Row')
 plt.grid(False)
 plt.tight_layout()
-plt.savefig('images/mdp_grid_world.png')
-print("网格世界可视化已保存为 'images/mdp_grid_world.png'")
+plt.savefig(os.path.join(images_dir, 'mdp_grid_world.png'))
+print("Grid world visualization saved to 'images/mdp_grid_world.png'")
 
 # 5. 模拟一个episode
 print("\n模拟一个episode...")
@@ -164,8 +168,8 @@ plt.ylabel('Row')
 plt.legend()
 plt.grid(False)
 plt.tight_layout()
-plt.savefig('images/mdp_trajectory.png')
-print("轨迹可视化已保存为 'images/mdp_trajectory.png'")
+plt.savefig(os.path.join(images_dir, 'mdp_trajectory.png'))
+print("Trajectory visualization saved to 'images/mdp_trajectory.png'")
 
 # 7. MDP要素总结
 print("\n" + "="*60)

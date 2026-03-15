@@ -4,7 +4,11 @@ SARSA演示
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("SARSA演示")

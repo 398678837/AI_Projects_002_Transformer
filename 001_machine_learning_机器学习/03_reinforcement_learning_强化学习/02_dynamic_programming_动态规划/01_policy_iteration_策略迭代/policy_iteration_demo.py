@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 from matplotlib.patches import Rectangle
 
 print("=" * 70)
@@ -111,8 +115,9 @@ def policy_iteration():
     policy_history = []
     
     iteration = 0
+    max_iterations = 100  # 限制最大迭代次数
     
-    while True:
+    while iteration < max_iterations:
         iteration += 1
         print(f"\n--- 迭代 {iteration} ---")
         
@@ -132,6 +137,8 @@ def policy_iteration():
             break
         
         policy = new_policy
+    else:
+        print(f"\n达到最大迭代次数 {max_iterations}，停止迭代")
     
     return V, policy, V_history, policy_history
 
