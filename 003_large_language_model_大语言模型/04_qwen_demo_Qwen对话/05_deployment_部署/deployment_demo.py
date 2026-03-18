@@ -5,48 +5,168 @@ Deployment
 
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+
+# 获取脚本目录
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
-print("Qwen部署演示")
+print("Qwen Deployment Demo")
 print("=" * 70)
 
 # 1. 部署方式
-print("\n1. 部署方式...")
+print("\n1. Deployment Methods...")
 
 print("""
-部署方式:
-- 本地部署
-- 云端部署
-- API服务
-- Docker容器
+Deployment Methods:
+- Local deployment
+- Cloud deployment
+- API service
+- Docker container
 """)
 
 # 2. 可视化
-print("\n2. 可视化...")
+print("\n2. Visualization...")
 
-fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
 ax = axes[0]
-methods = ['本地部署', '云端API', 'Docker', 'Serverless']
+methods = ['Local', 'Cloud API', 'Docker', 'Serverless']
 latency = [50, 200, 80, 150]
-ax.bar(methods, latency, color='steelblue', alpha=0.7)
-ax.set_ylabel('延迟(ms)')
-ax.set_title('不同部署方式延迟')
-ax.grid(True, alpha=0.3)
+colors = ['steelblue', 'coral', 'green', 'orange']
+bars = ax.bar(methods, latency, color=colors, alpha=0.7)
+ax.set_ylabel('Latency (ms)', fontsize=10)
+ax.set_title('Latency by Deployment Method', fontsize=12)
+ax.grid(True, alpha=0.3, axis='y')
+
+# 添加数值标签
+for bar, lat in zip(bars, latency):
+    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 5, 
+            f'{lat}', ha='center', va='bottom', fontsize=9)
 
 ax = axes[1]
 cost = [0, 100, 30, 50]
-ax.bar(methods, cost, color='coral', alpha=0.7)
-ax.set_ylabel('成本(相对)')
-ax.set_title('不同部署方式成本')
-ax.grid(True, alpha=0.3)
+colors = ['steelblue', 'coral', 'green', 'orange']
+bars = ax.bar(methods, cost, color=colors, alpha=0.7)
+ax.set_ylabel('Cost (Relative)', fontsize=10)
+ax.set_title('Cost by Deployment Method', fontsize=12)
+ax.grid(True, alpha=0.3, axis='y')
+
+# 添加数值标签
+for bar, cst in zip(bars, cost):
+    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 5, 
+            f'{cst}', ha='center', va='bottom', fontsize=9)
 
 plt.tight_layout()
-plt.savefig('images/deployment.png')
-print("可视化已保存为 'images/deployment.png'")
 
+# 确保images目录存在
+os.makedirs(images_dir, exist_ok=True)
+plt.savefig(os.path.join(images_dir, 'deployment.png'))
+print("Visualization saved to 'images/deployment.png'")
+
+# 3. 部署步骤
+print("\n3. Deployment Steps...")
+
+print("""
+Deployment Steps:
+1. Local Deployment:
+   - Install dependencies
+   - Run model locally
+
+2. Cloud Deployment:
+   - Use Hugging Face Inference API
+   - Configure API key
+   - Call API
+
+3. Docker Deployment:
+   - Create Dockerfile
+   - Build Docker image
+   - Run container
+
+4. Serverless Deployment:
+   - Use AWS Lambda
+   - Configure triggers
+   - Deploy function
+""")
+
+# 4. 注意事项
+print("\n4. Precautions...")
+
+print("""
+Precautions:
+1. Performance Optimization:
+   - Use quantization
+   - Use caching
+   - Use optimization tools
+
+2. Security:
+   - API key management
+   - Data encryption
+   - Access control
+
+3. Cost Control:
+   - Choose appropriate model
+   - Use auto-scaling
+   - Monitor usage
+""")
+
+# 5. 应用场景
+print("\n5. Applications...")
+
+print("""
+Deployment Applications:
+1. Research:
+   - Quick experiments
+   - Model comparison
+   - Baseline models
+
+2. Development:
+   - Quick prototyping
+   - Production deployment
+   - Model integration
+
+3. Education:
+   - Teaching examples
+   - Project reference
+   - Learning resources
+""")
+
+# 6. 总结
 print("\n" + "=" * 70)
-print("部署总结")
+print("Deployment Summary")
 print("=" * 70)
-print("根据需求选择合适的部署方式。")
+
+print("""
+Key Concepts:
+1. Deployment is the final step in LLM applications
+2. Choose appropriate deployment method
+3. Optimize performance
+4. Ensure security
+
+Deployment Methods:
+- Local deployment
+- Cloud deployment
+- Docker deployment
+- Serverless deployment
+
+Deployment Steps:
+- Local deployment
+- Cloud deployment
+- Docker deployment
+- Serverless deployment
+
+Deployment Applications:
+- Research
+- Development
+- Education
+
+Precautions:
+- Performance optimization
+- Security
+- Cost control
+""")
+
+print("=" * 70)
+print("Deployment Demo completed!")
 print("=" * 70)

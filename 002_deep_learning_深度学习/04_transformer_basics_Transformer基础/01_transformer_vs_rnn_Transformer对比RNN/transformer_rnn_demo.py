@@ -4,7 +4,11 @@ Transformer vs RNN对比演示
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("Transformer vs RNN对比演示")
@@ -95,7 +99,7 @@ ax.legend()
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('images/transformer_vs_rnn.png')
+plt.savefig(os.path.join(images_dir, 'transformer_vs_rnn.png'))
 print("可视化已保存为 'images/transformer_vs_rnn.png'")
 
 # 5. 注意力可视化
@@ -125,7 +129,7 @@ ax.set_title('自注意力机制可视化', fontsize=14)
 plt.colorbar(im, ax=ax)
 
 plt.tight_layout()
-plt.savefig('images/self_attention.png')
+plt.savefig(os.path.join(images_dir, 'self_attention.png'))
 print("可视化已保存为 'images/self_attention.png'")
 
 # 6. 总结

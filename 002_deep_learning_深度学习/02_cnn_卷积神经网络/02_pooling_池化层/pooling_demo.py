@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("池化层演示")
@@ -88,7 +92,7 @@ for i in range(2):
 plt.colorbar(im, ax=ax)
 
 plt.tight_layout()
-plt.savefig('images/pooling.png')
+plt.savefig(os.path.join(images_dir, 'pooling.png'))
 print("可视化已保存为 'images/pooling.png'")
 
 # 4. 总结

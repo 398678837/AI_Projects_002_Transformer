@@ -4,7 +4,11 @@ LeNet, AlexNet, VGG, ResNet
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("经典CNN架构演示")
@@ -101,7 +105,7 @@ ax.grid(True, alpha=0.3)
 plt.xticks(rotation=15)
 
 plt.tight_layout()
-plt.savefig('images/cnn_architectures.png')
+plt.savefig(os.path.join(images_dir, 'cnn_architectures.png'))
 print("可视化已保存为 'images/cnn_architectures.png'")
 
 # 6. 残差块图示
@@ -135,7 +139,7 @@ ax.set_title('ResNet残差块结构', fontsize=14)
 ax.axis('off')
 
 plt.tight_layout()
-plt.savefig('images/resnet_block.png')
+plt.savefig(os.path.join(images_dir, 'resnet_block.png'))
 print("可视化已保存为 'images/resnet_block.png'")
 
 # 7. 总结

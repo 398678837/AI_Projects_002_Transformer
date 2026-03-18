@@ -4,7 +4,11 @@ DNN基础网络演示
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("DNN基础网络演示")
@@ -124,7 +128,7 @@ for i, v in enumerate(predictions):
     ax.text(i, v + 0.05, f'{v:.2f}', ha='center', fontsize=10)
 
 plt.tight_layout()
-plt.savefig('images/dnn_basics.png')
+plt.savefig(os.path.join(images_dir, 'dnn_basics.png'))
 print("可视化已保存为 'images/dnn_basics.png'")
 
 # 4. 总结

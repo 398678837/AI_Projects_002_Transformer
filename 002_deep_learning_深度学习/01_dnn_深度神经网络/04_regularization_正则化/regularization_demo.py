@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("正则化演示")
@@ -143,7 +147,7 @@ for i, v in enumerate(weights_norm):
     ax.text(i, v + 0.5, f'{v:.2f}', ha='center', fontsize=10)
 
 plt.tight_layout()
-plt.savefig('images/regularization.png')
+plt.savefig(os.path.join(images_dir, 'regularization.png'))
 print("可视化已保存为 'images/regularization.png'")
 
 # 4. 总结

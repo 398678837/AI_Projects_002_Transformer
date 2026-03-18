@@ -4,7 +4,11 @@ RNN基础与序列处理
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("循环神经网络演示")
@@ -140,7 +144,7 @@ ax.axis('off')
 ax.set_title('RNN结构')
 
 plt.tight_layout()
-plt.savefig('images/rnn_demo.png')
+plt.savefig(os.path.join(images_dir, 'rnn_demo.png'))
 print("可视化已保存为 'images/rnn_demo.png'")
 
 # 4. 总结

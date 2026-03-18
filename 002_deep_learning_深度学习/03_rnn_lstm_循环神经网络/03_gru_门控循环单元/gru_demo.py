@@ -4,7 +4,11 @@ GRU演示
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("GRU演示")
@@ -112,7 +116,7 @@ ax.legend()
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('images/gru_demo.png')
+plt.savefig(os.path.join(images_dir, 'gru_demo.png'))
 print("可视化已保存为 'images/gru_demo.png'")
 
 # 5. 总结

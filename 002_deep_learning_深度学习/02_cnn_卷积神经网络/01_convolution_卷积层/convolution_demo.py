@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("卷积层演示")
@@ -78,7 +82,7 @@ ax.set_title('边缘检测')
 ax.axis('off')
 
 plt.tight_layout()
-plt.savefig('images/convolution.png')
+plt.savefig(os.path.join(images_dir, 'convolution.png'))
 print("可视化已保存为 'images/convolution.png'")
 
 # 5. CNN结构图
@@ -102,7 +106,7 @@ ax.set_title('CNN网络结构', fontsize=14)
 ax.axis('off')
 
 plt.tight_layout()
-plt.savefig('images/cnn_structure.png')
+plt.savefig(os.path.join(images_dir, 'cnn_structure.png'))
 print("可视化已保存为 'images/cnn_structure.png'")
 
 # 6. 总结

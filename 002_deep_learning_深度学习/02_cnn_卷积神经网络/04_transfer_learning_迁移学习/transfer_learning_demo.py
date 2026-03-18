@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("迁移学习演示")
@@ -55,7 +59,7 @@ class SimpleFeatureExtractor:
             axes[i].axis('off')
         
         plt.tight_layout()
-        plt.savefig('images/transfer_features.png')
+        plt.savefig(os.path.join(images_dir, 'transfer_features.png'))
         print("可视化已保存为 'images/transfer_features.png'")
 
 extractor = SimpleFeatureExtractor()
@@ -94,7 +98,7 @@ ax.set_xticklabels(strategies, rotation=15)
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('images/transfer_learning.png')
+plt.savefig(os.path.join(images_dir, 'transfer_learning.png'))
 print("可视化已保存为 'images/transfer_learning.png'")
 
 # 4. 总结

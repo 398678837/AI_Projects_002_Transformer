@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("微调演示")
@@ -69,7 +73,7 @@ ax.set_xticklabels(names, rotation=15)
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('images/fine_tuning.png')
+plt.savefig(os.path.join(images_dir, 'fine_tuning.png'))
 print("可视化已保存为 'images/fine_tuning.png'")
 
 # 4. 总结

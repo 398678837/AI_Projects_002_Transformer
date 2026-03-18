@@ -4,7 +4,11 @@ LSTM演示
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("LSTM演示")
@@ -129,7 +133,7 @@ for bar, imp in zip(bars, importance):
            f'{imp:.2f}', ha='center', fontsize=10)
 
 plt.tight_layout()
-plt.savefig('images/lstm_demo.png')
+plt.savefig(os.path.join(images_dir, 'lstm_demo.png'))
 print("可视化已保存为 'images/lstm_demo.png'")
 
 # 5. 总结

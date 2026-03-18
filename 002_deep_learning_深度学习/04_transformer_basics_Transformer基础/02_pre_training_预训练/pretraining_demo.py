@@ -4,7 +4,11 @@ BERT、GPT等
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("预训练模型演示")
@@ -95,7 +99,7 @@ for row in table_data:
 ax.set_title('预训练模型对比', fontsize=14, pad=20)
 
 plt.tight_layout()
-plt.savefig('images/pretraining.png')
+plt.savefig(os.path.join(images_dir, 'pretraining.png'))
 print("可视化已保存为 'images/pretraining.png'")
 
 # 4. 总结

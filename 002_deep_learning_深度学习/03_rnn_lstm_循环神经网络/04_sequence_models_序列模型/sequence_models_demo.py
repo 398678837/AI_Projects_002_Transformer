@@ -4,7 +4,11 @@
 """
 
 import numpy as np
+import os
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_dir = os.path.join(script_dir, 'images')
 
 print("=" * 70)
 print("序列模型应用演示")
@@ -90,7 +94,7 @@ ax.set_ylim(0, 10)
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('images/sequence_applications.png')
+plt.savefig(os.path.join(images_dir, 'sequence_applications.png'))
 print("可视化已保存为 'images/sequence_applications.png'")
 
 # 5. 序列模型架构对比
@@ -122,7 +126,7 @@ ax.legend()
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('images/sequence_models.png')
+plt.savefig(os.path.join(images_dir, 'sequence_models.png'))
 print("可视化已保存为 'images/sequence_models.png'")
 
 # 6. 总结
